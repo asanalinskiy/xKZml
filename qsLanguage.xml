@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    🇰🇿 QazaqScript Architecture Manifest
+    Описывает структуру, модули и спецификацию языка ҚазақСкрипт
+-->
+<QazaqLanguageManifest 
+    xmlns:qs="http://schemas.qazaqscript.org/qs"
+    package="org.qazaqscript.engine"
+    versionCode="1"
+    versionName="1.0.0-ҰЛТТЫҚ">
+
+    <!-- 1. Настройки нации и языкового фильтра -->
+    <uses-kazakh-policy 
+        qs:strictMode="true"
+        qs:vowelHarmony="enforced"
+        qs:allowedAlphabet="cyrillic-kazakh" />
+
+    <application
+        qs:label="ҚазақСкрипт Engine"
+        qs:fileExtension=".qs"
+        qs:entryPoint="qazaq.py">
+
+        <!-- 2. Модуль парсинга XML и построения AST-дерева -->
+        <module
+            qs:name=".parser.QazaqXmlParser"
+            qs:file="parser_xml.py"
+            qs:type="parser">
+            <property qs:name="syntaxTree" qs:value="AST" />
+            <property qs:name="unlimitedCustomTags" qs:value="true" />
+        </module>
+
+        <!-- 3. Модуль фильтрации языка (Национальный барьер) -->
+        <module
+            qs:name=".security.QazaqLangFilter"
+            qs:file="lang_filter.py"
+            qs:type="filter">
+            <intent-filter>
+                <action qs:name="qs.action.BLOCK_LATIN" />
+                <action qs:name="qs.action.BLOCK_RUSSIAN" />
+                <action qs:name="qs.action.CHECK_SINGARMONISM" />
+            </intent-filter>
+        </module>
+
+        <!-- 4. Движок интерпретатора (Выполнение логики) -->
+        <module
+            qs:name=".interpreter.QazaqInterpreter"
+            qs:file="interpreter.py"
+            qs:type="runtime">
+
+            <!-- Встроенная стандартная библиотека и команды -->
+            <command-register>
+                <command qs:tag="жаз" qs:handler="print" qs:description="Экранға шығару" />
+                <command qs:tag="айнымалы" qs:handler="set_var" qs:description="Мәнді сақтау" />
+                <command qs:tag="егер" qs:handler="eval_if" qs:description="Шартты тексеру" />
+                <command qs:tag="қайтала" qs:handler="eval_loop" qs:description="Циклды іске қосу" />
+            </command-register>
+        </module>
+
+        <!-- 5. Стандартная математическая библиотека -->
+        <library
+            qs:name=".std.QazaqMath"
+            qs:file="std_lib.py">
+            <function qs:name="тамыр" qs:alias="math.sqrt" />
+            <function qs:name="дәреже" qs:alias="math.pow" />
+            <function qs:name="модуль" qs:alias="abs" />
+        </library>
+
+    </application>
+
+</QazaqLanguageManifest>
