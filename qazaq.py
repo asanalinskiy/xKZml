@@ -8,8 +8,8 @@ def run_qs():
     if len(sys.argv) < 2:
         print("\n🇰🇿 XKZML v1.0")
         print("====================================")
-        print("Қолдану: python qazaq.py <бағдарлама.xkzml> [--строгий]")
-        print("Мысалы:  python qazaq.py бағдарлама.xkzml --строгий\n")
+        print("Қолдану: python qazaq.py <бағдарлама.qs> [--строгий]")
+        print("Мысалы:  python qazaq.py бағдарлама.qs --строгий\n")
         return
 
     file_path = sys.argv[1]
