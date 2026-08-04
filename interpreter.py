@@ -51,7 +51,7 @@ class QazaqInterpreter:
         tag = node.tag
 
         # 1. Главный контейнер скрипта
-        if tag in ["хкзмл", "ХКЗМЛ", "бағдарлама", "Хкзмл"]:
+        if tag in ["хкзмл", "ХКЗМЛ", "бағдарлама", "Хкзмл", "қазақскрипт", "Қазақскрипт"]:
             for child in node.children:
                 self.execute(child, env)
             return
