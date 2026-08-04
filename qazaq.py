@@ -6,10 +6,10 @@ from interpreter import QazaqInterpreter
 def run_qs():
     # Проверка аргументов командной строки
     if len(sys.argv) < 2:
-        print("\n🇰🇿 ҚазақСкрипт (QazaqScript) v1.0")
+        print("\n🇰🇿 XKZML v1.0")
         print("====================================")
-        print("Қолдану: python qazaq.py <бағдарлама.qs> [--строгий]")
-        print("Мысалы:  python qazaq.py бағдарлама.qs --строгий\n")
+        print("Қолдану: python qazaq.py <бағдарлама.xkzml> [--строгий]")
+        print("Мысалы:  python qazaq.py бағдарлама.xzml --строгий\n")
         return
 
     file_path = sys.argv[1]
@@ -17,11 +17,11 @@ def run_qs():
 
     # Проверка файла
     if not os.path.exists(file_path):
-        print(f"\n❌ [ҚазақСкрипт]: '{file_path}' файлы табылмады!")
+        print(f"\n❌ [XKZML]: '{file_path}' файлы табылмады!")
         return
 
     if not file_path.endswith('.qs'):
-        print(f"⚠️ [Ескерту]: Файл кеңейтілімі '.qs' болуы тиіс!")
+        print(f"⚠️ [Ескерту]: Файл кеңейтілімі '.xkzml' болуы тиіс!")
 
     with open(file_path, "r", encoding="utf-8") as f:
         code = f.read()
