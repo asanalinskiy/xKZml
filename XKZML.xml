@@ -17,7 +17,7 @@
 
     <application
         qs:label="ҚазақСкрипт Engine"
-        qs:fileExtension=".xkzml"
+        qs:fileExtension=".qs"
         qs:entryPoint="qazaq.py">
 
         <!-- 2. Модуль парсинга XML и построения AST-дерева -->
