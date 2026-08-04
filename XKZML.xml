@@ -4,7 +4,7 @@
     Описывает структуру, модули и спецификацию языка ҚазақСкрипт
 -->
 <QazaqLanguageManifest 
-    xmlns:qs="http://schemas.qazaqscript.org/qs"
+    xmlns:qs="http://schemas.xkzml.dev/xkzml"
     package="org.qazaqscript.engine"
     versionCode="1"
     versionName="1.0.0-ҰЛТТЫҚ">
@@ -17,7 +17,7 @@
 
     <application
         qs:label="ҚазақСкрипт Engine"
-        qs:fileExtension=".qs"
+        qs:fileExtension=".xkzml"
         qs:entryPoint="qazaq.py">
 
         <!-- 2. Модуль парсинга XML и построения AST-дерева -->
